@@ -11,15 +11,22 @@ def menu_opciones():
     for char in "¿Eres estudiante o profesor?\n":
         sleep(0.05)
         print(char,end='')
-    
     for opcion in ['1. Estudiante\n', '2. Profesor\n']:
         sleep (0.05)
         print(opcion, end='')
 
     es_profe_o_alumno = input('     ===>')
 
+    #Para decirle a las demas funciones en que sesion estamos 
+    global sesionProfesor
+    global sesionEstudiante
+
+    sesionProfesor = False
+    sesionEstudiante = False
+
     if es_profe_o_alumno.lower() == 'estudiante':
   
+        sesionEstudiante = True
         #Divisor para empezar menu
         print("="*20,"MENÚ","="*20,'\n')
 
@@ -32,5 +39,23 @@ def menu_opciones():
 
         for opcion in menu:
             print(opcion, '\n')
+
+        global opcionEstudiante
+        opcionEstudiante = input("  ===>")
+    else: 
+
+        sesionProfesor = True
+        for char in "Seleccione una opción porfavor\n \n":
+            #sleep(0.05)
+            print(char,end='')
+
+        menu = ['1)   Editar banco de preguntas en ambas materias.','2)   Ver historial de examanes de alumnos.', '3)   Ver notas de alumnos.','4)  Hacer examenes.', '5)  Cerrar Sesión']
+
+        for opcion in menu:
+            print(opcion, '\n')
+        
+        global opcionProfesor
+        opcionProfesor = input("  ===>")
+
 
 menu_opciones()
