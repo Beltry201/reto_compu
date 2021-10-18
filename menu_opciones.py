@@ -12,18 +12,25 @@ def menu_opciones():
         sleep(0.05)
         print(char,end='')
     
+    for opcion in ['1. Estudiante\n', '2. Profesor\n']:
+        sleep (0.05)
+        print(opcion, end='')
+
     es_profe_o_alumno = input('     ===>')
-    
-    #Divisor para empezar menu
-    print("="*20,"MENÚ","="*20,'\n')
 
-    #Menu opciones
-    for char in "Seleccione una opción porfavor\n \n":
-        #sleep(0.05)
-        print(char,end='')
+    if es_profe_o_alumno.lower() == 'estudiante':
+  
+        #Divisor para empezar menu
+        print("="*20,"MENÚ","="*20,'\n')
 
-    menu = ['1)   Tomar examen','2)   Simulacro de examen', '3)   Ver historial de examenes','4)  Repasar temas', '5)  Cerrar Sesión']
+        #Menu opciones
+        for char in "Seleccione una opción porfavor\n \n":
+            #sleep(0.05)
+            print(char,end='')
 
-    for opcion in menu:
-        print(opcion, '\n')
+        menu = ['1)   Tomar examen','2)   Simulacro de examen', '3)   Ver historial de examenes','4)  Repasar temas', '5)  Cerrar Sesión']
+
+        for opcion in menu:
+            print(opcion, '\n')
+
 menu_opciones()
