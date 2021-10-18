@@ -17,7 +17,7 @@ def menu_opciones():
 
     es_profe_o_alumno = input('     ===>')
 
-    #Para decirle a las demas funciones en que sesion estamos 
+    #Para decirle a las demas funciones en qué sesion estamos 
     global sesionProfesor
     global sesionEstudiante
 
@@ -40,6 +40,7 @@ def menu_opciones():
         for opcion in menu:
             print(opcion, '\n')
 
+        #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_estudiantes.py
         global opcionEstudiante
         opcionEstudiante = input("  ===>")
     else: 
@@ -54,6 +55,7 @@ def menu_opciones():
         for opcion in menu:
             print(opcion, '\n')
         
+        #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_Profesores.py
         global opcionProfesor
         opcionProfesor = input("  ===>")
 
