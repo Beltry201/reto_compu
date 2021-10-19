@@ -1,4 +1,4 @@
-from menu_opciones import opcionEstudiante, opcionProfesor
+from menu_opciones import opcionProfesor
 
-def sesion_profesores (contraseña, matricula):
+def sesion_profesores (contraseña, matricula):  
     opcionProfesor 

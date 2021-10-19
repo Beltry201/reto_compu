@@ -1,63 +1,78 @@
-from time import sleep # Esta libreria sirve para pausar operaciones por x cantidad de tiempo en segundos
+from time import sleep# Esta libreria sirve para pausar operaciones por x cantidad de tiempo en segundos
+from inicio_sesion import iniciar_sesion_estudiante, iniciar_sesion_profesor
+from tabulate import tabulate
 
 def menu_opciones():   
 
     #Saludo
-    for char in "¡Bienvenid@ a tu asesor de estudio! \n        ¿Estas list@?\n \n":
+    for i in "¡Bienvenid@ a tu asesor de estudio! \n \n       ¿Estas list@?\n \n":
         #sleep(0.05)
-        print(char, end='')
+        print(i, end='')
 
-    #Para acceder a la sesion correspondiente
-    for char in "¿Eres estudiante o profesor?\n":
+    #Para acceder a la sesion coerrespondiente
+    for i in "¿Eres estudiante o profesor?\n":
         sleep(0.05)
-        print(char,end='')
-    for opcion in ['1. Estudiante\n', '2. Profesor\n']:
-        sleep (0.05)
-        print(opcion, end='')
+        print(i,end='')
+    
+    tipo_usuario = [['1) Estudiante'],['2) Profesor']]
+    print(tabulate(tipo_usuario))
 
-    es_profe_o_alumno = input('     ===>')
+    es_profe_o_alumno = input('     ===> ')
 
-    #Para decirle a las demas funciones en qué sesion estamos 
-    global sesionProfesor
-    global sesionEstudiante
+    if es_profe_o_alumno == '1':
 
-    sesionProfesor = False
-    sesionEstudiante = False
+        print('Porfavor inicie sesión')
 
-    if es_profe_o_alumno.lower() == 'estudiante':
-  
-        sesionEstudiante = True
-        #Divisor para empezar menu
-        print("="*20,"MENÚ","="*20,'\n')
+        #Variables de nombre y matricula son globales para que ../inicio_sesion.py pueda usar los parametros
+        nombre = input('Porfavor ingrese su nombre:     ')
+        matricula = input('Porfavor ingrese su matricula:       ') 
 
-        #Menu opciones
-        for char in "Seleccione una opción porfavor\n \n":
-            #sleep(0.05)
-            print(char,end='')
+        #Pide al usuario iniciar sesion 
+        #Revisa si la verificacion fue exitosa
+        if iniciar_sesion_estudiante(nombre, matricula) == True:
 
-        menu = ['1)   Tomar examen','2)   Simulacro de examen', '3)   Ver historial de examenes','4)  Repasar temas', '5)  Cerrar Sesión']
+            #Divisor para empezar menu
+            print("="*20,"MENÚ","="*20,'\n')
 
-        for opcion in menu:
-            print(opcion, '\n')
+            #Menu opciones
+            for i in "Seleccione una opción porfavor\n \n":
+                #sleep(0.05)        
+                print(i,end='')
 
-        #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_estudiantes.py
-        global opcionEstudiante
-        opcionEstudiante = input("  ===>")
-    else: 
+            menu = [['1)  Tomar examen'],['2)  Simulacro de examen'], ['3)  Ver historial de examenes'],['4)  Repasar temas'], ['5)  Cerrar Sesión']]
 
-        sesionProfesor = True
-        for char in "Seleccione una opción porfavor\n \n":
-            #sleep(0.05)
-            print(char,end='')
+            print(tabulate(menu))
 
-        menu = ['1)   Editar banco de preguntas en ambas materias.','2)   Ver historial de examanes de alumnos.', '3)   Ver notas de alumnos.','4)  Hacer examenes.', '5)  Cerrar Sesión']
+            #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_estudiantes.py
+            global opcionEstudiante
+            opcionEstudiante = input("  ===>")
+        else:
+            menu_opciones()
 
-        for opcion in menu:
-            print(opcion, '\n')
-        
-        #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_Profesores.py
-        global opcionProfesor
-        opcionProfesor = input("  ===>")
+    elif es_profe_o_alumno == '2': 
+
+        matricula = input('Porfavor ingrese su matricula:       ') 
+        contraseña = input('Porfavor ingrese su contraseña:     ')
+
+        if iniciar_sesion_profesor(matricula,contraseña) == True:
+
+            for i in "Seleccione una opción porfavor\n \n":
+                #sleep(0.05)
+                print(i,end='')
+
+            menu = [['1)  Editar banco de preguntas.'],['2)  Ver historial de examanes de alumnos.'], ['3)  Ver notas de alumnos.'],['4)  Tomar examen.'], ['5)  Cerrar Sesión']]
+
+            print(tabulate(menu))
+            
+            #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_Profesores.py
+            global opcionProfesor
+            opcionProfesor = input("  ===>")
+
+        else:
+            menu_opciones()
+
+    else:
+        menu_opciones()
 
 
 menu_opciones()
