@@ -9,8 +9,7 @@
 #       4. Revisar un tema (Teoria).
 #       5. Cerrar sesion.
 #   2. Iniciar sesion como profesor
-#       1. Editar banco de preguntas en ambas materias.
-#       2. Ver historial de examanes de alumnos.
-#       3. Ver notas de alumnos.
-#       4. Hacer examenes.
-#       5. Cerrar sesion.
+#       1. Ver historial de examanes de alumnos.
+#       2. Ver notas de alumnos.
+#       3. Hacer examenes.
+#       4. Cerrar sesion.

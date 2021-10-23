@@ -1,6 +1,8 @@
 from time import sleep# Esta libreria sirve para pausar operaciones por x cantidad de tiempo en segundos
 from inicio_sesion import iniciar_sesion_estudiante, iniciar_sesion_profesor
 from tabulate import tabulate
+from sesion_estudiante import examen_español,examen_ciencias,examen_matematicas,banco_preguntas_español,banco_preguntas_ciencias
+
 
 def menu_opciones():   
 
@@ -46,6 +48,24 @@ def menu_opciones():
             #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_estudiantes.py
             global opcionEstudiante
             opcionEstudiante = input("  ===>")
+
+            #Empieza seleccion de menu
+            
+            if opcionEstudiante == '1':
+
+                print('De que materia desea realizar su examen?\n')
+                materias_disponibles = [['1)    Español'],['2)  Matemáticas'],['3)  Ciencias']]
+                print(tabulate(materias_disponibles))
+                selecciona_materia = int(input('===>    '))
+
+                if selecciona_materia == 1:
+                    examen_español(banco_preguntas_español, int(input('Cuantas preguntas sera el examen?')))
+                elif selecciona_materia == 2:
+                    examen_matematicas(int(input('Cuantas preguntas quiere en su examen?')))
+                elif selecciona_materia == 3:
+                    examen_ciencias(banco_preguntas_ciencias, int(input('Cuantas preguntas sera el examen?')))
+            
+
         else:
             menu_opciones()
 

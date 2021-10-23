@@ -1,12 +1,4 @@
-from menu_opciones import opcionEstudiante, opcionProfesor
 import random
-
-
-#TODO 
-def sesion_profesores (contraseña, matricula):
-    opcionEstudiante 
-
-
 
 #Banco preguntas español
 pregunta_E_1 = {'Pregunta:' : '¿Qué palabra es la correcta?', 'Respuestas:' : '\nA-Hervir\nB-Herbir\nC-Erbir\nD-Ervir', 'RespuestaCorrecta' : 'B'}
@@ -31,12 +23,13 @@ pregunta_C_8 = {'Pregunta:' : '¿Para qué sirve la raíz de las plantas?', 'Res
 pregunta_C_9 = {'Pregunta:' : '¿Qué absorbe la planta a través de sus hojas?', 'Respuestas:' : '\nA-Oxigeno\nB-Dioxido de carbono\nC-Gases\nD-Humo', 'RespuestaCorrecta' : 'B'}
 pregunta_C_10 = {'Pregunta:' : '¿En qué tres estados puede presentarse la materia?', 'Respuestas:' : '\nA-En estado sólido, líquido o gaseoso\nB-Estable o inestable\nC- Renovable o no renovable\nD-Vivo o muerto', 'RespuestaCorrecta' : 'A'}
 
+global banco_preguntas_español
 banco_preguntas_español = [pregunta_E_1,pregunta_E_2,pregunta_E_3,pregunta_E_4,pregunta_E_5,pregunta_E_6,pregunta_E_7,pregunta_E_8,pregunta_E_9,pregunta_E_10]
-
+global banco_preguntas_ciencias
 banco_preguntas_ciencias = [pregunta_C_1,pregunta_C_2,pregunta_C_3,pregunta_C_4,pregunta_C_5,pregunta_C_6,pregunta_C_7,pregunta_C_8,pregunta_C_9,pregunta_C_10]
 
 #Funcion que crea el examen de español
-def examen_español(banco_preguntas_español,n=int(input('Cuantas preguntas sera el examen?'))):
+def examen_español(banco_preguntas_español,n):  
     calificacion = 0
     examen = []
     for i in range(0,n):
@@ -47,11 +40,13 @@ def examen_español(banco_preguntas_español,n=int(input('Cuantas preguntas sera
         print(pregunta,respuestasPosibles)
         respuesta = input('Respuesta:')
         if respuesta.upper() == banco_preguntas_español[numero]['RespuestaCorrecta']:
-            calificacion = calificacion + 10
+            calificacion = calificacion + 100/n
+            
         print(calificacion)
     return calificacion
+    
 #Funcion que crea el examen de matematicas
-def examen_matematicas(n=int(input('Cuantas preguntas sera el examen?'))):
+def examen_matematicas(n):
     calificacion = 0
     examen = []
     respuestaCorrecta=-40000
@@ -82,12 +77,12 @@ def examen_matematicas(n=int(input('Cuantas preguntas sera el examen?'))):
         
         respuesta = int(input('Respuesta:'))
         if respuesta == respuestaCorrecta:
-            calificacion = calificacion + 10
+            calificacion = calificacion + 100/n
         print(calificacion)
     return calificacion
 
 #Funcion que crea el examen de ciencias
-def examen_ciencias(banco_preguntas_ciencias,n=int(input('Cuantas preguntas sera el examen?'))):
+def examen_ciencias(banco_preguntas_ciencias,n):
     calificacion = 0
     examen = []
     for i in range(0,n):
@@ -98,10 +93,6 @@ def examen_ciencias(banco_preguntas_ciencias,n=int(input('Cuantas preguntas sera
         print(pregunta,respuestasPosibles)
         respuesta = input('Respuesta:')
         if respuesta.upper() == banco_preguntas_ciencias[numero]['RespuestaCorrecta']:
-            calificacion = calificacion + 10
+            calificacion = calificacion + 100/n
         print(calificacion)
     return calificacion
-
-# 1-Español
-# 2-Matemáticas
-# 3-Ciencias
