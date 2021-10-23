@@ -1,4 +1,6 @@
 import random
+import webbrowser
+        
 
 #Banco preguntas español
 pregunta_E_1 = {'Pregunta:' : '¿Qué palabra es la correcta?', 'Respuestas:' : '\nA-Hervir\nB-Herbir\nC-Erbir\nD-Ervir', 'RespuestaCorrecta' : 'B'}
@@ -150,3 +152,25 @@ def examen_ciencias(banco_preguntas_ciencias,n):
         print(i)
         print("\n")        
     return calificacion
+
+
+#Funciones para despliegar videos de categorias de español
+def practicaLectura():
+    webbrowser.open("https://www.youtube.com/watch?v=SDHWfmF6hGY")
+def practicaOrtografia():
+    webbrowser.open("https://www.youtube.com/watch?v=mc5nGgpKuPM")
+
+#Funciones para despliegar videos de categorias de matematicas
+def practicaSumas():
+    webbrowser.open("https://www.youtube.com/watch?v=oF-rZLIShC8")
+def practicaRestas():
+    webbrowser.open("https://www.youtube.com/watch?v=L6NOkLq6kHk")
+def practicaMultiplicacion():
+    webbrowser.open("https://www.youtube.com/watch?v=AE4B0hgnz0E")
+
+#Funciones para despliegar videos de categorias de ciencias
+def practicaCuerpoHumano():
+    webbrowser.open("https://www.youtube.com/watch?v=S3jJj68dBxw")
+def practicaPartesCuerpo():
+    webbrowser.open("https://www.youtube.com/watch?v=-iDZ5tuH2fs")
+

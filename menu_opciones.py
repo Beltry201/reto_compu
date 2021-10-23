@@ -1,7 +1,7 @@
 from time import sleep# Esta libreria sirve para pausar operaciones por x cantidad de tiempo en segundos
 from inicio_sesion import iniciar_sesion_estudiante, iniciar_sesion_profesor
 #from tabulate import tabulate
-from sesion_estudiante import examen_español,examen_ciencias,examen_matematicas,banco_preguntas_español,banco_preguntas_ciencias
+from sesion_estudiante import examen_español,examen_ciencias,examen_matematicas,banco_preguntas_español,banco_preguntas_ciencias, practicaCuerpoHumano, practicaLectura, practicaMultiplicacion, practicaOrtografia, practicaPartesCuerpo, practicaRestas, practicaSumas
 
 
 def menu_opciones():   
@@ -17,8 +17,7 @@ def menu_opciones():
         print(i,end='')
     
     tipo_usuario = [['1) Estudiante'],['2) Profesor']]
-    #tabulate tabulate(tipo_usuario)
-    print(tipo_usuario)
+    print(tabulate(tipo_usuario))
 
     es_profe_o_alumno = input('     ===> ')
 
@@ -42,9 +41,9 @@ def menu_opciones():
                 #sleep(0.05)        
                 print(i,end='')
 
-            menu = [['1)  Tomar examen'],['2)  Simulacro de examen'], ['3)  Ver historial de examenes'],['4)  Repasar temas'], ['5)  Cerrar Sesión']]
-            #Tabulate tabulate(menu)
-            print(menu)
+            menu = [['1)  Tomar examen'],['2)  Repasar materia'], ['3)  Ver historial de examenes'],['4)  Repasar temas'], ['5)  Cerrar Sesión']]
+
+            print(tabulate(menu))
 
             #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_estudiantes.py
             global opcionEstudiante
@@ -56,8 +55,7 @@ def menu_opciones():
 
                 print('De que materia desea realizar su examen?\n')
                 materias_disponibles = [['1)    Español'],['2)  Matemáticas'],['3)  Ciencias']]
-                #tabulate tabulate(materias_disponibles)
-                print(materias_disponibles)
+                print(tabulate(materias_disponibles))
                 selecciona_materia = int(input('===>    '))
 
                 if selecciona_materia == 1:
@@ -66,6 +64,43 @@ def menu_opciones():
                     examen_matematicas(int(input('Cuantas preguntas quiere en su examen?')))
                 elif selecciona_materia == 3:
                     examen_ciencias(banco_preguntas_ciencias, int(input('Cuantas preguntas sera el examen?')))
+            elif opcionEstudiante == '2':
+                print('De que materia te gustaria realizar tu repasar?')
+                materias_disponibles = [['1)    Español'],['2)  Matemáticas'],['3)  Ciencias']]
+                print(tabulate(materias_disponibles))
+                selecciona_materia = int(input('===>    '))
+                if selecciona_materia == 1:
+                    print('De que categoria te gustaria realizar tu repaso?')
+                    categoria_disponibles = [['1)    Lectura Comprensiva'],['2) Ortografia']]
+                    print(categoria_disponibles)
+                    seleccion_disponibles = int(input('===>    '))
+                    if seleccion_disponibles == 1:
+                        practicaLectura()  
+                    elif seleccion_disponibles == 2:
+                        practicaOrtografia()             
+                elif selecciona_materia == 2:
+                    print('De que categoria te gustaria realizar tu repaso?')
+                    categoria_disponiblesM = [['1)    Sumas'],['2) Restas'],['3)  Multiplicacion']]
+                    print(categoria_disponiblesM)
+                    seleccion_disponiblesM = int(input('===>    '))
+                    if seleccion_disponiblesM == 1:
+                        practicaSumas()  
+                    elif seleccion_disponiblesM == 2:
+                        practicaRestas()
+                    elif seleccion_disponiblesM == 3:
+                        practicaMultiplicacion()
+                elif selecciona_materia == 3:
+                    print('De que categoria te gustaria realizar tu repaso?')
+                    categoria_disponiblesC = [['1)    Sistemas del Cuerpo'],['2) Partes del cuerpo']]
+                    print(categoria_disponiblesC)
+                    seleccion_disponiblesC = int(input('===>    '))
+                    if seleccion_disponiblesC == 1:
+                        practicaCuerpoHumano()  
+                    elif seleccion_disponiblesC == 2:
+                        practicaPartesCuerpo()
+                        
+                        
+                
             
 
         else:
@@ -83,8 +118,7 @@ def menu_opciones():
                 print(i,end='')
 
             menu = [['1)  Editar banco de preguntas.'],['2)  Ver historial de examanes de alumnos.'], ['3)  Ver notas de alumnos.'],['4)  Tomar examen.'], ['5)  Cerrar Sesión']]
-            tabulate(menu)
-            print(menu)
+            print(tabulate(menu))
             
             #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_Profesores.py
             global opcionProfesor
