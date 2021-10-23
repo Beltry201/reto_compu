@@ -1,7 +1,8 @@
 from time import sleep# Esta libreria sirve para pausar operaciones por x cantidad de tiempo en segundos
 from inicio_sesion import iniciar_sesion_estudiante, iniciar_sesion_profesor
-#from tabulate import tabulate
-from sesion_estudiante import examen_español,examen_ciencias,examen_matematicas,banco_preguntas_español,banco_preguntas_ciencias, practicaCuerpoHumano, practicaLectura, practicaMultiplicacion, practicaOrtografia, practicaPartesCuerpo, practicaRestas, practicaSumas
+from tabulate import tabulate
+from sesion_estudiante import *
+
 
 
 def menu_opciones():   
@@ -60,15 +61,19 @@ def menu_opciones():
 
                 if selecciona_materia == 1:
                     examen_español(banco_preguntas_español, int(input('Cuantas preguntas sera el examen?')))
+
                 elif selecciona_materia == 2:
                     examen_matematicas(int(input('Cuantas preguntas quiere en su examen?')))
+
                 elif selecciona_materia == 3:
                     examen_ciencias(banco_preguntas_ciencias, int(input('Cuantas preguntas sera el examen?')))
+
             elif opcionEstudiante == '2':
-                print('De que materia te gustaria realizar tu repasar?')
+                print('¿Qué materia te gustaria repasar?')
                 materias_disponibles = [['1)    Español'],['2)  Matemáticas'],['3)  Ciencias']]
                 print(tabulate(materias_disponibles))
                 selecciona_materia = int(input('===>    '))
+
                 if selecciona_materia == 1:
                     print('De que categoria te gustaria realizar tu repaso?')
                     categoria_disponibles = [['1)    Lectura Comprensiva'],['2) Ortografia']]
@@ -77,7 +82,8 @@ def menu_opciones():
                     if seleccion_disponibles == 1:
                         practicaLectura()  
                     elif seleccion_disponibles == 2:
-                        practicaOrtografia()             
+                        practicaOrtografia()
+                                         
                 elif selecciona_materia == 2:
                     print('De que categoria te gustaria realizar tu repaso?')
                     categoria_disponiblesM = [['1)    Sumas'],['2) Restas'],['3)  Multiplicacion']]
@@ -99,10 +105,6 @@ def menu_opciones():
                     elif seleccion_disponiblesC == 2:
                         practicaPartesCuerpo()
                         
-                        
-                
-            
-
         else:
             menu_opciones()
 
