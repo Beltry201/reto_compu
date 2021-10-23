@@ -32,17 +32,34 @@ banco_preguntas_ciencias = [pregunta_C_1,pregunta_C_2,pregunta_C_3,pregunta_C_4,
 def examen_español(banco_preguntas_español,n):  
     calificacion = 0
     examen = []
+    respuestasCorrectas = []
+    respuestasIncorrectas = []
     for i in range(0,n):
         numero = random.randint(0,9)
         examen.append(banco_preguntas_español[numero]['Pregunta:'])
         pregunta = banco_preguntas_español[numero]['Pregunta:']
         respuestasPosibles = banco_preguntas_español[numero]['Respuestas:']
-        print(pregunta,respuestasPosibles)
-        respuesta = input('Respuesta:')
+        print(pregunta + '\n',respuestasPosibles)
+        respuesta = input('Respuesta:')       
         if respuesta.upper() == banco_preguntas_español[numero]['RespuestaCorrecta']:
             calificacion = calificacion + 100/n
-            
-        print(calificacion)
+            respuestasCorrectas.append(banco_preguntas_español[numero]['Pregunta:'])    
+            respuestasCorrectas.append(banco_preguntas_español[numero]['RespuestaCorrecta'])
+                
+        else:
+            respuestasIncorrectas.append(banco_preguntas_español[numero]['Pregunta:'])    
+            respuestasIncorrectas.append(banco_preguntas_español[numero]['RespuestaCorrecta'])
+    print(f'\nTu calificacion es de {calificacion} de 100 \n')  
+    print('*'*70)
+    print('Resumen del examen:')
+    print('Respuestas correctas:')
+    for i in respuestasCorrectas:
+        print(i)
+        print("\n")
+    print('Respuestas incorrectas:')
+    for i in respuestasIncorrectas:
+        print(i)
+        print("\n")
     return calificacion
     
 #Funcion que crea el examen de matematicas
@@ -50,6 +67,8 @@ def examen_matematicas(n):
     calificacion = 0
     examen = []
     respuestaCorrecta=-40000
+    respuestasCorrectasM = []
+    respuestasIncorrectasM = []
     for i in range(0,n):
         numero = random.randint(1,1001)
         numero2 = random.randint(1,101)
@@ -78,21 +97,56 @@ def examen_matematicas(n):
         respuesta = int(input('Respuesta:'))
         if respuesta == respuestaCorrecta:
             calificacion = calificacion + 100/n
-        print(calificacion)
+            respuestasCorrectasM.append(pregunta)    
+            respuestasCorrectasM.append(respuestaCorrecta)
+        else:
+            respuestasIncorrectasM.append(pregunta)    
+            respuestasIncorrectasM.append(respuestaCorrecta)
+    print(f'\nTu calificacion es de {calificacion} de 100 \n')  
+    print('*'*70)
+    print('Resumen del examen:')
+    print('Respuestas correctas:')
+    for i in respuestasCorrectasM:
+        print(i)
+        print("\n")
+    print('Respuestas incorrectas:')
+    for i in respuestasIncorrectasM:
+        print(i)
+        print("\n")        
     return calificacion
+
+
 
 #Funcion que crea el examen de ciencias
 def examen_ciencias(banco_preguntas_ciencias,n):
     calificacion = 0
     examen = []
+    respuestasCorrectasC = []
+    respuestasIncorrectasC = []
     for i in range(0,n):
         numero = random.randint(0,9)
         examen.append(banco_preguntas_ciencias[numero]['Pregunta:'])
         pregunta = banco_preguntas_ciencias[numero]['Pregunta:']
         respuestasPosibles = banco_preguntas_ciencias[numero]['Respuestas:']
-        print(pregunta,respuestasPosibles)
+        print(pregunta + '\n',respuestasPosibles)
         respuesta = input('Respuesta:')
         if respuesta.upper() == banco_preguntas_ciencias[numero]['RespuestaCorrecta']:
             calificacion = calificacion + 100/n
-        print(calificacion)
+            respuestasCorrectasC.append(banco_preguntas_ciencias[numero]['Pregunta:'])    
+            respuestasCorrectasC.append(banco_preguntas_ciencias[numero]['RespuestaCorrecta'])
+                
+        else:
+            respuestasIncorrectasC.append(banco_preguntas_ciencias[numero]['Pregunta:'])    
+            respuestasIncorrectasC.append(banco_preguntas_ciencias[numero]['RespuestaCorrecta'])
+    print(f'\nTu calificacion es de {calificacion} de 100 \n')  
+    print('*'*70)
+    print('Resumen del examen:')
+    print('Respuestas correctas:')
+    for i in respuestasCorrectasC:
+        print(i)
+        print("\n")
+    print('Respuestas incorrectas:')
+    for i in respuestasIncorrectasC:
+        print(i)
+        print("\n")        
     return calificacion

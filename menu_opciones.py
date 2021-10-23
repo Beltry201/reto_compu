@@ -1,6 +1,6 @@
 from time import sleep# Esta libreria sirve para pausar operaciones por x cantidad de tiempo en segundos
 from inicio_sesion import iniciar_sesion_estudiante, iniciar_sesion_profesor
-from tabulate import tabulate
+#from tabulate import tabulate
 from sesion_estudiante import examen_español,examen_ciencias,examen_matematicas,banco_preguntas_español,banco_preguntas_ciencias
 
 
@@ -17,7 +17,8 @@ def menu_opciones():
         print(i,end='')
     
     tipo_usuario = [['1) Estudiante'],['2) Profesor']]
-    print(tabulate(tipo_usuario))
+    #tabulate tabulate(tipo_usuario)
+    print(tipo_usuario)
 
     es_profe_o_alumno = input('     ===> ')
 
@@ -42,8 +43,8 @@ def menu_opciones():
                 print(i,end='')
 
             menu = [['1)  Tomar examen'],['2)  Simulacro de examen'], ['3)  Ver historial de examenes'],['4)  Repasar temas'], ['5)  Cerrar Sesión']]
-
-            print(tabulate(menu))
+            #Tabulate tabulate(menu)
+            print(menu)
 
             #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_estudiantes.py
             global opcionEstudiante
@@ -55,7 +56,8 @@ def menu_opciones():
 
                 print('De que materia desea realizar su examen?\n')
                 materias_disponibles = [['1)    Español'],['2)  Matemáticas'],['3)  Ciencias']]
-                print(tabulate(materias_disponibles))
+                #tabulate tabulate(materias_disponibles)
+                print(materias_disponibles)
                 selecciona_materia = int(input('===>    '))
 
                 if selecciona_materia == 1:
@@ -81,8 +83,8 @@ def menu_opciones():
                 print(i,end='')
 
             menu = [['1)  Editar banco de preguntas.'],['2)  Ver historial de examanes de alumnos.'], ['3)  Ver notas de alumnos.'],['4)  Tomar examen.'], ['5)  Cerrar Sesión']]
-
-            print(tabulate(menu))
+            tabulate(menu)
+            print(menu)
             
             #Hace el input global para hacer la logica de las opciones en la funcion ../sesion_Profesores.py
             global opcionProfesor
