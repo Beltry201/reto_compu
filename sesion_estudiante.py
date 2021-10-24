@@ -193,8 +193,8 @@ def examen_matematicas(n,matricula):
 
     with open(nombre_archivo,"w+") as registro_calificación:
         registro_calificación.write(str(fecha_registro)+'\n'+'Puntos ---> '+str(calificacion))
-
     return calificacion
+    
 
 
 
@@ -318,7 +318,7 @@ def examen_lectura(banco_preguntas_lectura1,banco_preguntas_lectura2,matricula):
     for i in respuestasIncorrectasL2:
         sleep(0.05)
         print('❌',i)   
-    print("\n"*5)     
+    print("\n"*5)  
 
 
 
