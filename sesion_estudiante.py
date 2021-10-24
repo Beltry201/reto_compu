@@ -1,5 +1,7 @@
 import random
 import webbrowser
+from time import sleep
+from datetime import date, datetime
         
 
 #Banco preguntas español
@@ -31,7 +33,7 @@ global banco_preguntas_ciencias
 banco_preguntas_ciencias = [pregunta_C_1,pregunta_C_2,pregunta_C_3,pregunta_C_4,pregunta_C_5,pregunta_C_6,pregunta_C_7,pregunta_C_8,pregunta_C_9,pregunta_C_10]
 
 #Funcion que crea el examen de español
-def examen_español(banco_preguntas_español,n):  
+def examen_español(banco_preguntas_español,n,matricula):  
     calificacion = 0
     examen = []
     respuestasCorrectas = []
@@ -41,27 +43,41 @@ def examen_español(banco_preguntas_español,n):
         examen.append(banco_preguntas_español[numero]['Pregunta:'])
         pregunta = banco_preguntas_español[numero]['Pregunta:']
         respuestasPosibles = banco_preguntas_español[numero]['Respuestas:']
-        print(pregunta + '\n',respuestasPosibles)
-        respuesta = input('Respuesta:')       
+        print(pregunta + '\n',respuestasPosibles + '\n')
+        respuesta = input('Respuesta:') 
+
         if respuesta.upper() == banco_preguntas_español[numero]['RespuestaCorrecta']:
             calificacion = calificacion + 100/n
-            respuestasCorrectas.append(banco_preguntas_español[numero]['Pregunta:'])    
-            respuestasCorrectas.append(banco_preguntas_español[numero]['RespuestaCorrecta'])
+            respuestasCorrectas.append('{} ---> {}'.format(banco_preguntas_español[numero]['Pregunta:'],banco_preguntas_español[numero]['RespuestaCorrecta']))    
                 
         else:
-            respuestasIncorrectas.append(banco_preguntas_español[numero]['Pregunta:'])    
-            respuestasIncorrectas.append(banco_preguntas_español[numero]['RespuestaCorrecta'])
-    print(f'\nTu calificacion es de {calificacion} de 100 \n')  
-    print('*'*70)
-    print('Resumen del examen:')
+            respuestasIncorrectas.append('{} ---> {}'.format(banco_preguntas_español[numero]['Pregunta:'],banco_preguntas_español[numero]['RespuestaCorrecta']))    
+
+    for i in (f'\nTu calificacion es de {calificacion} de 100 \n'):
+        sleep(0.05)
+        print(i,end='')
+    for i in ('='*50,'\n'):
+        sleep(0.05)
+        print(i,end='')
+
+    print('         RESUMEN DEL EXAMEN:')
     print('Respuestas correctas:')
     for i in respuestasCorrectas:
-        print(i)
-        print("\n")
+        sleep(0.05)
+        print('✅ ',i)
+
     print('Respuestas incorrectas:')
     for i in respuestasIncorrectas:
-        print(i)
-        print("\n")
+        sleep(0.05)
+        print('❌',i)    
+
+    nombre_archivo = '{}'.format(matricula)
+    fecha = datetime.now()
+    fecha_registro = fecha.strftime("Examen hecho el ,%d/%m/%Y, a las %H:%M:%S")
+
+    with open(nombre_archivo,"w+") as registro_calificación:
+        registro_calificación.write(str(fecha_registro)+'\n'+'Puntos ---> '+str(calificacion))
+
     return calificacion
     
 #Funcion que crea el examen de matematicas

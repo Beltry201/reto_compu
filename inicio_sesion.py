@@ -1,6 +1,6 @@
 from time import sleep# Esta libreria sirve para pausar operaciones por x cantidad de tiempo en segundos
 
-def iniciar_sesion_estudiante(nombre,matricula):
+def iniciar_sesion_estudiante(nombre, matricula):
 
     #Variable global para confirmar que el usuario esta verificado
     global estudianteVerificado
@@ -11,6 +11,7 @@ def iniciar_sesion_estudiante(nombre,matricula):
     a una lista (matriculas) para poder comparar el input del 
     usuario con las matricuals existentes.
     '''
+
     matriculas = []
     with open('sesiones_estudiantes.txt') as sesiones_estudiantes:
         for i in sesiones_estudiantes:
@@ -21,7 +22,7 @@ def iniciar_sesion_estudiante(nombre,matricula):
             '''Se usa el metodo .replace() para evitar que la matricula 
             entre a la lista con el caracter reservado de nueva linea \n'''
             matriculas.append(i.lower().replace("\n","")) 
-        print(matriculas)
+        # print(matriculas)
     # Descomentar para debbuguear
     # print(matriculas)
 
@@ -124,4 +125,3 @@ def iniciar_sesion_profesor(matricula, contraseña):
         print('='*40,'\n¡Ups! Algo salió mal, intente de nuevo\n','='*40)
 
     return profesorVerificado
-

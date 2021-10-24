@@ -26,13 +26,13 @@ def menu_opciones():
 
         print('Porfavor inicie sesión')
 
-        #Variables de nombre y matricula son globales para que ../inicio_sesion.py pueda usar los parametros
+        #Pide al usuario iniciar sesion 
+
         nombre = input('Porfavor ingrese su nombre:     ')
         matricula = input('Porfavor ingrese su matricula:       ') 
 
-        #Pide al usuario iniciar sesion 
         #Revisa si la verificacion fue exitosa
-        if iniciar_sesion_estudiante(nombre, matricula) == True:
+        if iniciar_sesion_estudiante(nombre,matricula) == True:
 
             #Divisor para empezar menu
             print("="*20,"MENÚ","="*20,'\n')
@@ -60,7 +60,7 @@ def menu_opciones():
                 selecciona_materia = int(input('===>    '))
 
                 if selecciona_materia == 1:
-                    examen_español(banco_preguntas_español, int(input('Cuantas preguntas sera el examen?')))
+                    examen_español(banco_preguntas_español, int(input('Cuantas preguntas sera el examen?')),matricula)
 
                 elif selecciona_materia == 2:
                     examen_matematicas(int(input('Cuantas preguntas quiere en su examen?')))
@@ -77,10 +77,12 @@ def menu_opciones():
                 if selecciona_materia == 1:
                     print('De que categoria te gustaria realizar tu repaso?')
                     categoria_disponibles = [['1)    Lectura Comprensiva'],['2) Ortografia']]
-                    print(categoria_disponibles)
+                    print(tabulate(categoria_disponibles))
                     seleccion_disponibles = int(input('===>    '))
+
                     if seleccion_disponibles == 1:
                         practicaLectura()  
+
                     elif seleccion_disponibles == 2:
                         practicaOrtografia()
                                          
@@ -104,7 +106,11 @@ def menu_opciones():
                         practicaCuerpoHumano()  
                     elif seleccion_disponiblesC == 2:
                         practicaPartesCuerpo()
-                        
+
+            elif opcionEstudiante == '3':
+
+                with open(str(matricula),'r') as historial_estudiante:
+                    print(historial_estudiante.read())         
         else:
             menu_opciones()
 
