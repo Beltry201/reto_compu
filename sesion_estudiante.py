@@ -167,17 +167,26 @@ def examen_matematicas(n):
         else:
             respuestasIncorrectasM.append(pregunta)    
             respuestasIncorrectasM.append(respuestaCorrecta)
-    print(f'\nTu calificacion es de {calificacion} de 100 \n')  
-    print('*'*70)
-    print('Resumen del examen:')
+            
+    for i in (f'\nTu calificacion es de {calificacion} de 100 \n'):
+        sleep(0.05)
+        print(i,end='')
+    for i in ('='*50,'\n'):
+        sleep(0.05)
+        print(i,end='')
+
+    print('         RESUMEN DEL EXAMEN:')
     print('Respuestas correctas:')
+
     for i in respuestasCorrectasM:
-        print(i)
-        print("\n")
+        sleep(0.05)
+        print('✅ ',i)
+
     print('Respuestas incorrectas:')
     for i in respuestasIncorrectasM:
-        print(i)
-        print("\n")        
+        sleep(0.05)
+        print('❌',i)    
+
     return calificacion
 
 
@@ -203,17 +212,24 @@ def examen_ciencias(banco_preguntas_ciencias,n):
         else:
             respuestasIncorrectasC.append(banco_preguntas_ciencias[numero]['Pregunta:'])    
             respuestasIncorrectasC.append(banco_preguntas_ciencias[numero]['RespuestaCorrecta'])
-    print(f'\nTu calificacion es de {calificacion} de 100 \n')  
-    print('*'*70)
-    print('Resumen del examen:')
+
+    for i in (f'\nTu calificacion es de {calificacion} de 100 \n'):
+        sleep(0.05)
+        print(i,end='')
+    for i in ('='*50,'\n'):
+        sleep(0.05)
+        print(i,end='')
+
+    print('         RESUMEN DEL EXAMEN:')
     print('Respuestas correctas:')
     for i in respuestasCorrectasC:
-        print(i)
-        print("\n")
+        sleep(0.05)
+        print('✅ ',i)
+
     print('Respuestas incorrectas:')
     for i in respuestasIncorrectasC:
-        print(i)
-        print("\n")        
+        sleep(0.05)
+        print('❌',i)     
     return calificacion
 
 def examen_lectura(banco_preguntas_lectura1,banco_preguntas_lectura2):
@@ -242,17 +258,24 @@ def examen_lectura(banco_preguntas_lectura1,banco_preguntas_lectura2):
             respuestasIncorrectasL1.append(banco_preguntas_lectura1[numero]['Pregunta:'])    
             respuestasIncorrectasL1.append(banco_preguntas_lectura1[numero]['RespuestaCorrecta'])
     print("\n"*3)     
-    print(f'\nTu calificacion de la primera lectura es de {calificacion1} de 100 \n')  
-    print('*'*70)
-    print('Resumen del examen primera lectura :')
+    for i in (f'\nTu calificacion es de {calificacion1} de 100 \n'):
+        sleep(0.05)
+        print(i,end='')
+    for i in ('='*50,'\n'):
+        sleep(0.05)
+        print(i,end='')
+
+    print('         RESUMEN DEL EXAMEN:')
     print('Respuestas correctas:')
     for i in respuestasCorrectasL1:
-        print(i)
-        print("\n")
+        sleep(0.05)
+        print('✅ ',i)
+
     print('Respuestas incorrectas:')
     for i in respuestasIncorrectasL1:
-        print(i)
-        print("\n") 
+        sleep(0.05)
+        print('❌',i)
+
     print('Segunda lectura')
     print("\n"*5)     
     print(lectura2)
@@ -271,17 +294,23 @@ def examen_lectura(banco_preguntas_lectura1,banco_preguntas_lectura2):
             respuestasIncorrectasL2.append(banco_preguntas_lectura2[numero]['Pregunta:'])    
             respuestasIncorrectasL2.append(banco_preguntas_lectura2[numero]['RespuestaCorrecta'])
     print("\n"*3)     
-    print(f'\nTu calificacion de la segunda lectura es de {calificacion2} de 100 \n')  
-    print('*'*70)
-    print('Resumen del examen segunda lectura :')
+    for i in (f'\nTu calificacion es de {calificacion2} de 100 \n'):
+        sleep(0.05)
+        print(i,end='')
+    for i in ('='*50,'\n'):
+        sleep(0.05)
+        print(i,end='')
+
+    print('         RESUMEN DEL EXAMEN:')
     print('Respuestas correctas:')
     for i in respuestasCorrectasL2:
-        print(i)
-        print("\n")
+        sleep(0.05)
+        print('✅ ',i)
+
     print('Respuestas incorrectas:')
     for i in respuestasIncorrectasL2:
-        print(i)
-        print("\n")      
+        sleep(0.05)
+        print('❌',i)   
     print("\n"*5)     
 
 
