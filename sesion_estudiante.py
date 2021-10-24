@@ -128,7 +128,7 @@ def examen_español(banco_preguntas_español,n,matricula):
     return calificacion
     
 #Funcion que crea el examen de matematicas
-def examen_matematicas(n):
+def examen_matematicas(n,matricula):
     calificacion = 0
     examen = []
     respuestaCorrecta=-40000
@@ -187,12 +187,19 @@ def examen_matematicas(n):
         sleep(0.05)
         print('❌',i)    
 
+    nombre_archivo = '{}'.format(matricula)
+    fecha = datetime.now()
+    fecha_registro = fecha.strftime("Examen hecho el ,%d/%m/%Y, a las %H:%M:%S")
+
+    with open(nombre_archivo,"w+") as registro_calificación:
+        registro_calificación.write(str(fecha_registro)+'\n'+'Puntos ---> '+str(calificacion))
+
     return calificacion
 
 
 
 #Funcion que crea el examen de ciencias
-def examen_ciencias(banco_preguntas_ciencias,n):
+def examen_ciencias(banco_preguntas_ciencias,n,matricula):
     calificacion = 0
     examen = []
     respuestasCorrectasC = []
@@ -232,7 +239,7 @@ def examen_ciencias(banco_preguntas_ciencias,n):
         print('❌',i)     
     return calificacion
 
-def examen_lectura(banco_preguntas_lectura1,banco_preguntas_lectura2):
+def examen_lectura(banco_preguntas_lectura1,banco_preguntas_lectura2,matricula):
     print("\n"*3)     
     calificacion1 = 0
     calificacion2 = 0

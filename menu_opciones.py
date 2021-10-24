@@ -61,16 +61,18 @@ def menu_opciones():
                 selecciona_materia = int(input('===>    '))
 
                 if selecciona_materia == 1:
-                    examen_español(banco_preguntas_español, int(input('Cuantas preguntas sera el examen? ')))
+                    examen_español(banco_preguntas_español, int(input('Cuantas preguntas sera el examen? ')),matricula)
                     print('*'*70)
                     print('Comienza prueba de lectura')
                     examen_lectura(banco_preguntas_lectura1,banco_preguntas_lectura2)
 
                 elif selecciona_materia == 2:
-                    examen_matematicas(int(input('Cuantas preguntas quiere en su examen? ')))
+                    examen_matematicas(int(input('Cuantas preguntas quiere en su examen? ')),matricula)
 
                 elif selecciona_materia == 3:
-                    examen_ciencias(banco_preguntas_ciencias, int(input('Cuantas preguntas sera el examen? ')))
+                    examen_ciencias(banco_preguntas_ciencias, int(input('Cuantas preguntas sera el examen? ')),matricula)
+                elif selecciona_materia == 4:
+                    examen_lectura(banco_preguntas_lectura1,banco_preguntas_lectura2,matricula)
 
             elif opcionEstudiante == '2':
                 print('¿Qué materia te gustaria repasar? ')
